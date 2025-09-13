@@ -1,12 +1,11 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import Banner from "../features/Banners/Components/Banner";
 
 const HomeScreen = () => {
   return (
-    <View>
-      <Text>HomeScreen</Text>
-    </View>
-  )
-}
+    <>
+      <Banner />
+    </>
+  );
+};
 
-export default HomeScreen
+export default HomeScreen;
