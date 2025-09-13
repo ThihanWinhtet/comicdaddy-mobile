@@ -1,12 +1,20 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+import HomeNavigator from "./HomeNavigator";
+import AccountNavigator from "./AccountNavigator";
+
+const Stack = createNativeStackNavigator();
 
 const AuthNavigator = () => {
   return (
-    <View>
-      <Text>AuthNavigator</Text>
-    </View>
-  )
-}
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="Home" component={HomeNavigator} />
+        <Stack.Screen name="Auth" component={AccountNavigator} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
 
-export default AuthNavigator
+export default AuthNavigator;
