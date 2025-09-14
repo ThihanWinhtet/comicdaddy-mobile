@@ -7,7 +7,12 @@ export const getComics = (limit = 9) => {
   return client.get(endpoint, params);
 };
 
-export const getPopularComics = (limit) => {
+export const getPopularComics = (limit = 9) => {
   const params = { limit };
   return client.get(`${endpoint}/popular`, params);
+};
+
+export const getRelatedComics = (comicId, limit = 9) => {
+  const params = { limit };
+  return client.get(`${endpoint}/related/${comicId}`, params);
 };
