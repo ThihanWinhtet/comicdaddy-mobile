@@ -1,15 +1,36 @@
-import { StyleSheet} from 'react-native'
+import { Pressable, StyleSheet } from "react-native";
 
-import { useRelatedComic } from '../hooks'
-import ComicGrid from '../Components/ComicGrid'
+import { useRelatedComic } from "../hooks";
+import ComicItem from "../Components/ComicItem";
+import ListGrid from "../../../components/ListGrid";
 
-const RelatedComic = () => {
-    const {comics, loading} = useRelatedComic("68bbccc912d73dc22b7047c9");
+const RelatedComic = ({ comicId }) => {
+  const { comics, loading } = useRelatedComic(comicId);
+
   return (
-    <ComicGrid comics={comics}/>
-  )
-}
+    <ListGrid
+      link={"SearchScreen"}
+      comics={comics}
+      scrollable={true}
+      renderItem={({ item, itemWidth, height, marginSize }) => (
+        <Pressable
+          onPress={() => navigation.navigate("ComicDetails", { item })}
+        >
+          <ComicItem
+            image={item.coverImgUrl}
+            title={item.title}
+            issuesCount={item.issuesCount}
+            createdAt={item.createdAt}
+            itemWidth={itemWidth}
+            height={height}
+            marginSize={marginSize}
+          />
+        </Pressable>
+      )}
+    />
+  );
+};
 
-export default RelatedComic
+export default RelatedComic;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

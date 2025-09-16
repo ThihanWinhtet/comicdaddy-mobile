@@ -14,6 +14,7 @@ import ComicItem from "../Components/ComicItem";
 import ComicGrid from "../Components/ComicGrid";
 import Details from "../Components/Details";
 import ChapterScreen from "../../chapters/Screens/ChapterScreen";
+import RelatedComic from "./RelatedComic";
 
 const width = Dimensions.get("window").width;
 const banerHeight = width / (3 / 2);
@@ -85,7 +86,9 @@ const ComicDetails = ({ route }) => {
         <Tab.Screen name="Details">
           {(props) => <Details {...props} comic={comic} />}
         </Tab.Screen>
-        <Tab.Screen name="Related" component={ComicGrid} />
+        <Tab.Screen name="Related">
+          {(props) => <RelatedComic {...props} comicId={comic._id} />}
+        </Tab.Screen>
       </Tab.Navigator>
     </>
   );
