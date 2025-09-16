@@ -4,7 +4,14 @@ import { useNavigation } from "@react-navigation/native";
 // import ComicItem from "./ComicItem";
 import GridTitle from "./GridTitle";
 
-const ListGrid = ({ title, comics, renderItem, scrollable = false, link }) => {
+const ListGrid = ({
+  title,
+  comics,
+  renderItem,
+  scrollable = false,
+  link,
+  contentContainerStyle,
+}) => {
   const numColumns = 3;
   const screenWidth = Dimensions.get("window").width;
   const marginSize = 8;
@@ -24,6 +31,7 @@ const ListGrid = ({ title, comics, renderItem, scrollable = false, link }) => {
           keyExtractor={(item, index) =>
             item.id ? item.id.toString() : index.toString()
           }
+          contentContainerStyle={contentContainerStyle}
           scrollEnabled={scrollable}
           keyboardShouldPersistTaps="handled"
           bounces={true}
