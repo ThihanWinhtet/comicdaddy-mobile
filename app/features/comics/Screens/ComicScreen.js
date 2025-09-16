@@ -4,10 +4,12 @@ import Search from "../../../components/Search";
 import { useComics } from "../hooks";
 import ComicItem from "../Components/ComicItem";
 import Screen from "../../../components/screen";
+import { useNavigation } from "@react-navigation/native";
 
 const ComicScreen = () => {
+  const navigation = useNavigation();
   const { comics, loading } = useComics();
-  console.log(comics);
+
   return (
     <Screen styles={styles.container}>
       <Search />
