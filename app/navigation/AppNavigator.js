@@ -7,6 +7,7 @@ import BrowseScreen from "../screens/BrowseScreen";
 import CommunityScreen from "../screens/CommunityScreen";
 import BookmarkScreen from "../screens/BookmarkScreen";
 import AccountScreen from "../screens/AccountScreen";
+import HomeNavigator from "./HomeNavigator";
 
 const Tab = createBottomTabNavigator();
 
@@ -25,7 +26,7 @@ const AppNavigator = () => {
             ),
           }}
           name="Home"
-          component={HomeScreen}
+          component={HomeNavigator}
         />
         <Tab.Screen
           options={{
