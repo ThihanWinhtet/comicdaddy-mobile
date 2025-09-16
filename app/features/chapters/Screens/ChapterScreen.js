@@ -3,9 +3,7 @@ import ListGrid from "../../../components/ListGrid";
 import { useChapters } from "../hooks";
 import ComicItem from "../../comics/Components/ComicItem";
 
-const ChapterScreen = ({ route, comicId }) => {
-  const pa = route.params;
-  console.log(pa);
+const ChapterScreen = ({ comicId }) => {
   const { chapters } = useChapters(comicId);
   return (
     <>
