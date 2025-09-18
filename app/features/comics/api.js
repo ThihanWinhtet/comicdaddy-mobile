@@ -2,8 +2,8 @@ import client from "../../api/client";
 
 const endpoint = "/comics";
 
-export const getComics = (limit = 9) => {
-  const params = { limit };
+export const getComics = (limit = 9, search = "") => {
+  const params = { limit, search };
   return client.get(endpoint, params);
 };
 

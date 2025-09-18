@@ -5,14 +5,20 @@ import { useComics } from "../hooks";
 import ComicItem from "../Components/ComicItem";
 import Screen from "../../../components/screen";
 import { useNavigation } from "@react-navigation/native";
+import { useState } from "react";
 
 const ComicScreen = () => {
   const navigation = useNavigation();
-  const { comics, loading } = useComics();
+  const [search, setSearch] = useState("");
+  const { comics, loading } = useComics(9, search);
 
   return (
     <Screen styles={styles.container}>
-      <Search />
+      <Search
+        value={search}
+        onChange={setSearch}
+        onClear={() => setSearch("")}
+      />
       <ListGrid
         comics={comics}
         scrollable={true}

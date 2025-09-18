@@ -6,25 +6,25 @@ import { Ionicons } from "@expo/vector-icons";
 
 import Screen from "./screen";
 
-const Search = () => {
-  const [search, setSearch] = useState("");
+const Search = ({ value, onChange, onClear }) => {
+  // const [search, setSearch] = useState("");
 
   return (
     // <Screen edges={["top", "left", "right"]}>
-      <View style={styles.container}>
-        <View style={styles.search}>
-          <Ionicons name="search-outline" style={styles.searchIcon} size={17} />
-          <TextInput
-            style={styles.searchInput}
-            placeholder="Search"
-            value={search}
-            onChangeText={setSearch}
-          />
-        </View>
-        <TouchableOpacity style={styles.close}>
-          <AntDesign name="close" />
-        </TouchableOpacity>
+    <View style={styles.container}>
+      <View style={styles.search}>
+        <Ionicons name="search-outline" style={styles.searchIcon} size={17} />
+        <TextInput
+          style={styles.searchInput}
+          placeholder="Search"
+          value={value}
+          onChangeText={onChange}
+        />
       </View>
+      <TouchableOpacity style={styles.close} onPress={onClear}>
+        <AntDesign name="close" />
+      </TouchableOpacity>
+    </View>
     // </Screen>
   );
 };

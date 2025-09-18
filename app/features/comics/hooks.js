@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import { getComics, getPopularComics, getRelatedComics } from "./api";
 
-export const useComics = (limit = 12) => {
+export const useComics = (limit = 12, search) => {
   const [comics, setComics] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     loadComics();
-  }, []);
+  }, [search]);
 
   const loadComics = async () => {
     setLoading(true);
-    const response = await getComics(limit);
+    const response = await getComics(limit, search);
     if (response.ok) setComics(response.data.data.comics);
     setLoading(false);
   };
