@@ -1,16 +1,18 @@
 import { Pressable, StyleSheet } from "react-native";
 import ListGrid from "../../../components/ListGrid";
 import Search from "../../../components/Search";
-import { useComics } from "../hooks";
+import { useRelatedComic, usePopularComics, useComics } from "../hooks";
 import ComicItem from "../Components/ComicItem";
 import Screen from "../../../components/screen";
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 
-const ComicScreen = () => {
+const ComicScreen = ({ route }) => {
+  const { type } = route.params;
   const navigation = useNavigation();
   const [search, setSearch] = useState("");
-  const { comics, loading } = useComics(9, search);
+  const { comics, loading } = useComics(12, search);
+  // const { comics, loading } = type == "popular" ? usePopularComics() : useRelatedComic(9);
 
   return (
     <Screen styles={styles.container}>

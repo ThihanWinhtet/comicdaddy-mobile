@@ -12,6 +12,7 @@ const PopularComic = () => {
     <ListGrid
       title={"Popular Comics For You"}
       link={"SearchScreen"}
+      type="popular"
       comics={comics}
       renderItem={({ item, itemWidth, height, marginSize }) => (
         <Pressable

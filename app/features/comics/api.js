@@ -7,8 +7,8 @@ export const getComics = (limit = 9, search = "") => {
   return client.get(endpoint, params);
 };
 
-export const getPopularComics = (limit = 9) => {
-  const params = { limit };
+export const getPopularComics = (limit = 9, search = "") => {
+  const params = { limit, search };
   return client.get(`${endpoint}/popular`, params);
 };
 

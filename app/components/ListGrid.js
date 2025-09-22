@@ -7,6 +7,7 @@ import GridTitle from "./GridTitle";
 const ListGrid = ({
   title,
   comics,
+  type,
   renderItem,
   scrollable = false,
   link,
@@ -22,7 +23,7 @@ const ListGrid = ({
 
   return (
     <>
-      {title ? <GridTitle title={title} link={link} /> : ""}
+      {title ? <GridTitle title={title} link={link} type={type}/> : ""}
 
       <View style={styles.comicGrid}>
         <FlatList
