@@ -11,7 +11,11 @@ const HomeNavigator = () => {
   return (
     <HomeStack.Navigator screenOptions={{ headerShown: false }}>
       <HomeStack.Screen name="MainHome" component={HomeScreen} />
-      <HomeStack.Screen name="ComicDetails" component={ComicDetails} />
+      <HomeStack.Screen
+        name="ComicDetails"
+        component={ComicDetails}
+        options={{ unmountOnBlur: true }}
+      />
       <HomeStack.Screen name="SearchScreen" component={ComicScreen} />
       <HomeStack.Screen name="Reader" component={ComicReader} />
     </HomeStack.Navigator>

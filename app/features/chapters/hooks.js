@@ -6,7 +6,7 @@ export const useChapters = (comicId) => {
 
   useEffect(() => {
     loadChapter();
-  }, []);
+  }, [comicId]);
 
   const loadChapter = async () => {
     const response = await getChapters(comicId);

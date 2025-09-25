@@ -29,7 +29,7 @@ const ComicItem = ({
           },
         ]}
         source={{
-          uri: `http://192.168.1.7:3000/api/file/${image}`,
+          uri: `http://192.168.1.2:3000/api/file/${image}`,
         }}
       ></Image>
 

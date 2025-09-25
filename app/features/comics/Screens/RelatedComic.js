@@ -3,9 +3,11 @@ import { Pressable, StyleSheet } from "react-native";
 import { useRelatedComic } from "../hooks";
 import ComicItem from "../Components/ComicItem";
 import ListGrid from "../../../components/ListGrid";
+import { useNavigation } from "@react-navigation/native";
 
 const RelatedComic = ({ comicId }) => {
   const { comics, loading } = useRelatedComic(comicId);
+  const navigation = useNavigation();
 
   return (
     <ListGrid
@@ -14,7 +16,13 @@ const RelatedComic = ({ comicId }) => {
       scrollable={true}
       renderItem={({ item, itemWidth, height, marginSize }) => (
         <Pressable
-          onPress={() => navigation.navigate("ComicDetails", { item })}
+          onPress={() =>
+            navigation.navigate("ComicDetails", {
+              item,
+              key: item._id,
+              screen: "Details",
+            })
+          }
         >
           <ComicItem
             image={item.coverImgUrl}

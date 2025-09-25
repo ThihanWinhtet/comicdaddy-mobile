@@ -43,7 +43,7 @@ export const useRelatedComic = (comicId) => {
 
   useEffect(() => {
     loadComics();
-  }, []);
+  }, [comicId]);
 
   const loadComics = async () => {
     setLoading(true);
