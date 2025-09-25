@@ -4,6 +4,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   ScrollView,
+  Pressable,
 } from "react-native";
 import {
   MaterialCommunityIcons,
@@ -13,12 +14,22 @@ import {
 
 import Search from "../components/Search";
 import Screen from "../components/screen";
+import ListGrid from "../components/ListGrid";
+import { useComics } from "../features/comics/hooks";
+import ComicItem from "../features/comics/Components/ComicItem";
+import { useState } from "react";
 
 const Browse = () => {
+  const [search, setSearch] = useState("");
+  const { comics } = useComics(9, search);
   return (
     <Screen>
       {/* Search Component */}
-      <Search />
+      <Search
+        value={search}
+        onChange={setSearch}
+        onClear={() => setSearch("")}
+      />
 
       {/* Search by item Component */}
       <ScrollView>
@@ -85,6 +96,24 @@ const Browse = () => {
         </View>
 
         {/* Comics Grid */}
+        <ListGrid
+          comics={comics}
+          renderItem={({ item, itemWidth, height, marginSize }) => (
+            <Pressable
+              onPress={() => navigation.navigate("ComicDetails", { item })}
+            >
+              <ComicItem
+                image={item.coverImgUrl}
+                title={item.title}
+                issuesCount={item.issuesCount}
+                createdAt={item.createdAt}
+                itemWidth={itemWidth}
+                height={height}
+                marginSize={marginSize}
+              />
+            </Pressable>
+          )}
+        />
       </ScrollView>
     </Screen>
   );
