@@ -1,4 +1,5 @@
 import { View, Text, Image, StyleSheet } from "react-native";
+import client from "../../../api/client";
 
 const ComicItem = ({
   image,
@@ -29,7 +30,7 @@ const ComicItem = ({
           },
         ]}
         source={{
-          uri: `http://192.168.1.2:3000/api/file/${image}`,
+          uri: `${client.getBaseURL()}/file/${image}`,
         }}
       ></Image>
 
