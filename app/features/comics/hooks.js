@@ -12,7 +12,7 @@ export const useComics = (limit = 9, search) => {
   const loadComics = async () => {
     setLoading(true);
     const response = await getComics(limit, search);
-    if (response.ok) setComics(response.data.data.comics);
+    if (response.ok) setComics(response.data.data.response);
     setLoading(false);
   };
 
@@ -30,7 +30,7 @@ export const usePopularComics = (limit = 9) => {
   const loadComics = async () => {
     setLoading(true);
     const response = await getPopularComics(limit);
-    if (response.ok) setComics(response.data.data);
+    if (response.ok) setComics(response.data.data.response);
     setLoading(false);
   };
 
@@ -48,7 +48,8 @@ export const useRelatedComic = (comicId) => {
   const loadComics = async () => {
     setLoading(true);
     const response = await getRelatedComics(comicId);
-    if (response.ok) setComics(response.data.data.comics);
+    if (response.ok) setComics(response.data.data.response);
+    console.log(response.data.data.response);
     setLoading(false);
   };
 
