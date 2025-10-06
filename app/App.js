@@ -1,12 +1,12 @@
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import AppNavigator from "./navigation/AppNavigator";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import RootNavigator from "./navigation/RootNavigator";
 
 const App = () => {
   return (
     <GestureHandlerRootView>
       <SafeAreaProvider>
-        <AppNavigator />
+        <RootNavigator />
       </SafeAreaProvider>
     </GestureHandlerRootView>
   );
