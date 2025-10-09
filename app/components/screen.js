@@ -1,11 +1,18 @@
-import { StyleSheet, View } from "react-native";
+import {
+  Keyboard,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  View,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Screen({ children, ...otherProps }) {
   return (
-    <SafeAreaView style={styles.container} {...otherProps}>
-      {children}
-    </SafeAreaView>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <SafeAreaView style={styles.container} {...otherProps}>
+        {children}
+      </SafeAreaView>
+    </TouchableWithoutFeedback>
   );
 }
 
