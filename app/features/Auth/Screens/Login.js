@@ -7,8 +7,18 @@ import FormTitle from "../Components/FormTitle";
 import MainTitle from "../Components/MainTitle";
 import Card from "../Components/Card";
 import Container from "../Components/Container";
+import { useState } from "react";
+import { useAuth } from "../authContext";
 
 const Login = () => {
+  const { login } = useAuth();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = async () => {
+    await login(email, password);
+  };
+
   return (
     <>
       <Container>
@@ -23,9 +33,17 @@ const Login = () => {
           />
 
           <View style={styles.container}>
-            <Input text={"Your Email Address"} />
-            <Input text={"Your Password"} />
-            <FormBtn text={"Login"} />
+            <Input
+              text={"Your Email Address"}
+              value={email}
+              onChangeText={setEmail}
+            />
+            <Input
+              text={"Your Password"}
+              value={password}
+              onChangeText={setPassword}
+            />
+            <FormBtn text={"Login"} onPress={handleLogin} />
             <FormBtn text="Continue With Google" color="#FF0000" />
 
             <Text style={{ textAlign: "center" }}>
@@ -43,5 +61,5 @@ const Login = () => {
 export default Login;
 
 const styles = StyleSheet.create({
-  container : {}
+  container: {},
 });

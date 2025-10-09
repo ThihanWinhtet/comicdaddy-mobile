@@ -1,8 +1,11 @@
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
-const FormBtn = ({ text, color = "#ff6600" }) => {
+const FormBtn = ({ text, color = "#ff6600", onPress }) => {
   return (
-    <TouchableOpacity style={[styles.logInBtn, , { backgroundColor: color }]}>
+    <TouchableOpacity
+      onPress={onPress}
+      style={[styles.logInBtn, , { backgroundColor: color }]}
+    >
       <Text style={[styles.loginText]}>{text}</Text>
     </TouchableOpacity>
   );

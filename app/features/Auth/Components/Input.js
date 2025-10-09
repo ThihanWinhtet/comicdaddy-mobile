@@ -1,7 +1,7 @@
 import { StyleSheet, TextInput } from "react-native";
 
-const Input = ({ text }) => {
-  return <TextInput style={styles.input} placeholder={text} />;
+const Input = ({ text , onChangeText, value}) => {
+  return <TextInput style={styles.input} placeholder={text} value={value} onChangeText={onChangeText}/>;
 };
 
 export default Input;

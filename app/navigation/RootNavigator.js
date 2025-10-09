@@ -3,16 +3,18 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import HomeNavigator from "./HomeNavigator";
 import AuthNavigator from "./AuthNavigator";
+import { useAuth } from "../features/Auth/authContext";
+import AppNavigator from "./AppNavigator";
 
 const Stack = createNativeStackNavigator();
 
 const RootNavigator = () => {
-  const user = false;
+  const { user } = useAuth();
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
         {user ? (
-          <Stack.Screen name="Home" component={HomeNavigator} />
+          <Stack.Screen name="App" component={AppNavigator} />
         ) : (
           <Stack.Screen name="Auth" component={AuthNavigator} />
         )}
