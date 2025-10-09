@@ -18,8 +18,10 @@ import ListGrid from "../components/ListGrid";
 import { useComics } from "../features/comics/hooks";
 import ComicItem from "../features/comics/Components/ComicItem";
 import { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 
 const Browse = () => {
+  const navigation = useNavigation();
   const [search, setSearch] = useState("");
   const { comics } = useComics(9, search);
   return (
